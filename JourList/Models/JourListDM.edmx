@@ -1,0 +1,1564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JourListDM.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="JourListDMStoreContainer">
+    <EntitySet Name="Journals" EntityType="JourListDM.Store.Journals" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Items" EntityType="JourListDM.Store.Items" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="InventoryLogs" EntityType="JourListDM.Store.InventoryLogs" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="InventoryActions" EntityType="JourListDM.Store.InventoryActions" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Activities" EntityType="JourListDM.Store.Activities" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="RecurrenceIntervals" EntityType="JourListDM.Store.RecurrenceIntervals" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Accomplishments" EntityType="JourListDM.Store.Accomplishments" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="ActivityLogs" EntityType="JourListDM.Store.ActivityLogs" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Units" EntityType="JourListDM.Store.Units" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="UnitTypes" EntityType="JourListDM.Store.UnitTypes" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="ItemCategories" EntityType="JourListDM.Store.ItemCategories" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Inventories" EntityType="JourListDM.Store.Inventories" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Goals" EntityType="JourListDM.Store.Goals" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Members" EntityType="JourListDM.Store.Members" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="ItemInfoes" EntityType="JourListDM.Store.ItemInfoes" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="ShoppingLists" EntityType="JourListDM.Store.ShoppingLists" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Items_PersonalItem" EntityType="JourListDM.Store.Items_PersonalItem" store:Type="Tables" Schema="jourlist" />
+    <EntitySet Name="Items_StandardItem" EntityType="JourListDM.Store.Items_StandardItem" store:Type="Tables" Schema="jourlist" />
+    <AssociationSet Name="RecurrenceIntervalGoal" Association="JourListDM.Store.RecurrenceIntervalGoal">
+      <End Role="RecurrenceInterval" EntitySet="RecurrenceIntervals" />
+      <End Role="Goal" EntitySet="Goals" />
+    </AssociationSet>
+    <AssociationSet Name="JournalAccomplishment" Association="JourListDM.Store.JournalAccomplishment">
+      <End Role="Journal" EntitySet="Journals" />
+      <End Role="Accomplishment" EntitySet="Accomplishments" />
+    </AssociationSet>
+    <AssociationSet Name="GoalAccomplishment" Association="JourListDM.Store.GoalAccomplishment">
+      <End Role="Goal" EntitySet="Goals" />
+      <End Role="Accomplishment" EntitySet="Accomplishments" />
+    </AssociationSet>
+    <AssociationSet Name="InventoryActionInventoryLog" Association="JourListDM.Store.InventoryActionInventoryLog">
+      <End Role="InventoryAction" EntitySet="InventoryActions" />
+      <End Role="InventoryLog" EntitySet="InventoryLogs" />
+    </AssociationSet>
+    <AssociationSet Name="JournalActivityLog" Association="JourListDM.Store.JournalActivityLog">
+      <End Role="Journal" EntitySet="Journals" />
+      <End Role="ActivityLog" EntitySet="ActivityLogs" />
+    </AssociationSet>
+    <AssociationSet Name="ActivityActivityLog" Association="JourListDM.Store.ActivityActivityLog">
+      <End Role="Activity" EntitySet="Activities" />
+      <End Role="ActivityLog" EntitySet="ActivityLogs" />
+    </AssociationSet>
+    <AssociationSet Name="UnitTypeUnit" Association="JourListDM.Store.UnitTypeUnit">
+      <End Role="UnitType" EntitySet="UnitTypes" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="UnitActivityLog" Association="JourListDM.Store.UnitActivityLog">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="ActivityLog" EntitySet="ActivityLogs" />
+    </AssociationSet>
+    <AssociationSet Name="UnitTypeItem" Association="JourListDM.Store.UnitTypeItem">
+      <End Role="UnitType" EntitySet="UnitTypes" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="ItemCategoryItem" Association="JourListDM.Store.ItemCategoryItem">
+      <End Role="ItemCategory" EntitySet="ItemCategories" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="InventoryInventoryLog" Association="JourListDM.Store.InventoryInventoryLog">
+      <End Role="Inventory" EntitySet="Inventories" />
+      <End Role="InventoryLog" EntitySet="InventoryLogs" />
+    </AssociationSet>
+    <AssociationSet Name="ActivityGoal" Association="JourListDM.Store.ActivityGoal">
+      <End Role="Activity" EntitySet="Activities" />
+      <End Role="Goal" EntitySet="Goals" />
+    </AssociationSet>
+    <AssociationSet Name="ItemInventory" Association="JourListDM.Store.ItemInventory">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="MemberGoal" Association="JourListDM.Store.MemberGoal">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Goal" EntitySet="Goals" />
+    </AssociationSet>
+    <AssociationSet Name="MemberJournal" Association="JourListDM.Store.MemberJournal">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Journal" EntitySet="Journals" />
+    </AssociationSet>
+    <AssociationSet Name="MemberPersonalItem" Association="JourListDM.Store.MemberPersonalItem">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="PersonalItem" EntitySet="Items_PersonalItem" />
+    </AssociationSet>
+    <AssociationSet Name="MemberInventory" Association="JourListDM.Store.MemberInventory">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="ItemItemInfo" Association="JourListDM.Store.ItemItemInfo">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="ItemInfo" EntitySet="ItemInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="ItemInfoInventoryLog" Association="JourListDM.Store.ItemInfoInventoryLog">
+      <End Role="ItemInfo" EntitySet="ItemInfoes" />
+      <End Role="InventoryLog" EntitySet="InventoryLogs" />
+    </AssociationSet>
+    <AssociationSet Name="InventoryShoppingList" Association="JourListDM.Store.InventoryShoppingList">
+      <End Role="Inventory" EntitySet="Inventories" />
+      <End Role="ShoppingList" EntitySet="ShoppingLists" />
+    </AssociationSet>
+    <AssociationSet Name="InventoryUnit" Association="JourListDM.Store.InventoryUnit">
+      <End Role="Inventory" EntitySet="Inventories" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="UnitTypeUnit1" Association="JourListDM.Store.UnitTypeUnit1">
+      <End Role="UnitType" EntitySet="UnitTypes" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="UnitInventoryLog" Association="JourListDM.Store.UnitInventoryLog">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="InventoryLog" EntitySet="InventoryLogs" />
+    </AssociationSet>
+    <AssociationSet Name="ActivityUnit" Association="JourListDM.Store.ActivityUnit">
+      <End Role="Activity" EntitySet="Activities" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalItem_inherits_Item" Association="JourListDM.Store.FK_PersonalItem_inherits_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="PersonalItem" EntitySet="Items_PersonalItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardItem_inherits_Item" Association="JourListDM.Store.FK_StandardItem_inherits_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="StandardItem" EntitySet="Items_StandardItem" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Journals">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Story" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="HeartRate" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="Weight" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="Encrypted" Type="bit" Nullable="false" />
+    <Property Name="Member_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="UnitType_Id" Type="int" Nullable="false" />
+    <Property Name="ItemCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InventoryLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+    <Property Name="Quantity" Type="float" Nullable="false" />
+    <Property Name="Cost" Type="float" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="Size" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="InventoryAction_Id" Type="int" Nullable="false" />
+    <Property Name="Inventory_Id" Type="bigint" Nullable="false" />
+    <Property Name="ItemInfo_Id" Type="bigint" Nullable="true" />
+  </EntityType>
+  <EntityType Name="InventoryActions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Activities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Points" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Quantity" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="Unit_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecurrenceIntervals">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Minutes" Type="bigint" Nullable="false" DefaultValue="0" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+  </EntityType>
+  <EntityType Name="Accomplishments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Journal_Id" Type="bigint" Nullable="false" />
+    <Property Name="Goal_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Quantity" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="Hyperlink" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Journal_Id" Type="bigint" Nullable="false" />
+    <Property Name="Activity_Id" Type="bigint" Nullable="false" />
+    <Property Name="Unit_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Units">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConversionFactor" Type="float" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="UnitType_Id" Type="int" Nullable="false" />
+    <Property Name="UnitTypeUnit1_Unit_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UnitTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+  </EntityType>
+  <EntityType Name="ItemCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+  </EntityType>
+  <EntityType Name="Inventories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OnHand" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="RequiredQuantity" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="RestockThreshold" Type="float" Nullable="false" DefaultValue="-1" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Item_Id" Type="bigint" Nullable="false" />
+    <Property Name="Member_Id" Type="bigint" Nullable="false" />
+    <Property Name="Unit_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Goals">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="DateBegin" Type="datetime" Nullable="false" />
+    <Property Name="DateEnd" Type="datetime" Nullable="false" />
+    <Property Name="RecurrenceInterval_Id" Type="int" Nullable="false" />
+    <Property Name="Activity_Id" Type="bigint" Nullable="false" />
+    <Property Name="Member_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemInfoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Barcode" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Hyperlink" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Quantity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Brand" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Item_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShoppingLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InCart" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="QuantityNeeded" Type="float" Nullable="false" DefaultValue="1" />
+    <Property Name="SizeNeeded" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="Inventory_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items_PersonalItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Member_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items_StandardItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="RecurrenceIntervalGoal">
+    <End Role="RecurrenceInterval" Type="JourListDM.Store.RecurrenceIntervals" Multiplicity="1" />
+    <End Role="Goal" Type="JourListDM.Store.Goals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecurrenceInterval">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goal">
+        <PropertyRef Name="RecurrenceInterval_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JournalAccomplishment">
+    <End Role="Journal" Type="JourListDM.Store.Journals" Multiplicity="1" />
+    <End Role="Accomplishment" Type="JourListDM.Store.Accomplishments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Journal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Accomplishment">
+        <PropertyRef Name="Journal_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GoalAccomplishment">
+    <End Role="Goal" Type="JourListDM.Store.Goals" Multiplicity="1" />
+    <End Role="Accomplishment" Type="JourListDM.Store.Accomplishments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Accomplishment">
+        <PropertyRef Name="Goal_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InventoryActionInventoryLog">
+    <End Role="InventoryAction" Type="JourListDM.Store.InventoryActions" Multiplicity="1" />
+    <End Role="InventoryLog" Type="JourListDM.Store.InventoryLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryAction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InventoryLog">
+        <PropertyRef Name="InventoryAction_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JournalActivityLog">
+    <End Role="Journal" Type="JourListDM.Store.Journals" Multiplicity="1" />
+    <End Role="ActivityLog" Type="JourListDM.Store.ActivityLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Journal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityLog">
+        <PropertyRef Name="Journal_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActivityActivityLog">
+    <End Role="Activity" Type="JourListDM.Store.Activities" Multiplicity="1" />
+    <End Role="ActivityLog" Type="JourListDM.Store.ActivityLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityLog">
+        <PropertyRef Name="Activity_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitTypeUnit">
+    <End Role="UnitType" Type="JourListDM.Store.UnitTypes" Multiplicity="1" />
+    <End Role="Unit" Type="JourListDM.Store.Units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="UnitType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitActivityLog">
+    <End Role="Unit" Type="JourListDM.Store.Units" Multiplicity="1" />
+    <End Role="ActivityLog" Type="JourListDM.Store.ActivityLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityLog">
+        <PropertyRef Name="Unit_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitTypeItem">
+    <End Role="UnitType" Type="JourListDM.Store.UnitTypes" Multiplicity="1" />
+    <End Role="Item" Type="JourListDM.Store.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="UnitType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemCategoryItem">
+    <End Role="ItemCategory" Type="JourListDM.Store.ItemCategories" Multiplicity="1" />
+    <End Role="Item" Type="JourListDM.Store.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="ItemCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InventoryInventoryLog">
+    <End Role="Inventory" Type="JourListDM.Store.Inventories" Multiplicity="1" />
+    <End Role="InventoryLog" Type="JourListDM.Store.InventoryLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InventoryLog">
+        <PropertyRef Name="Inventory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActivityGoal">
+    <End Role="Activity" Type="JourListDM.Store.Activities" Multiplicity="1" />
+    <End Role="Goal" Type="JourListDM.Store.Goals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goal">
+        <PropertyRef Name="Activity_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemInventory">
+    <End Role="Item" Type="JourListDM.Store.Items" Multiplicity="1" />
+    <End Role="Inventory" Type="JourListDM.Store.Inventories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemberGoal">
+    <End Role="Member" Type="JourListDM.Store.Members" Multiplicity="1" />
+    <End Role="Goal" Type="JourListDM.Store.Goals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goal">
+        <PropertyRef Name="Member_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemberJournal">
+    <End Role="Member" Type="JourListDM.Store.Members" Multiplicity="1" />
+    <End Role="Journal" Type="JourListDM.Store.Journals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="Member_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemberPersonalItem">
+    <End Role="Member" Type="JourListDM.Store.Members" Multiplicity="1" />
+    <End Role="PersonalItem" Type="JourListDM.Store.Items_PersonalItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonalItem">
+        <PropertyRef Name="Member_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemberInventory">
+    <End Role="Member" Type="JourListDM.Store.Members" Multiplicity="1" />
+    <End Role="Inventory" Type="JourListDM.Store.Inventories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Member_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemItemInfo">
+    <End Role="Item" Type="JourListDM.Store.Items" Multiplicity="1" />
+    <End Role="ItemInfo" Type="JourListDM.Store.ItemInfoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemInfo">
+        <PropertyRef Name="Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemInfoInventoryLog">
+    <End Role="ItemInfo" Type="JourListDM.Store.ItemInfoes" Multiplicity="0..1" />
+    <End Role="InventoryLog" Type="JourListDM.Store.InventoryLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InventoryLog">
+        <PropertyRef Name="ItemInfo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InventoryShoppingList">
+    <End Role="Inventory" Type="JourListDM.Store.Inventories" Multiplicity="1" />
+    <End Role="ShoppingList" Type="JourListDM.Store.ShoppingLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShoppingList">
+        <PropertyRef Name="Inventory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InventoryUnit">
+    <End Role="Inventory" Type="JourListDM.Store.Inventories" Multiplicity="*" />
+    <End Role="Unit" Type="JourListDM.Store.Units" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Unit_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitTypeUnit1">
+    <End Role="UnitType" Type="JourListDM.Store.UnitTypes" Multiplicity="0..1" />
+    <End Role="Unit" Type="JourListDM.Store.Units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="UnitTypeUnit1_Unit_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitInventoryLog">
+    <End Role="Unit" Type="JourListDM.Store.Units" Multiplicity="1" />
+    <End Role="InventoryLog" Type="JourListDM.Store.InventoryLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InventoryLog">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActivityUnit">
+    <End Role="Activity" Type="JourListDM.Store.Activities" Multiplicity="*" />
+    <End Role="Unit" Type="JourListDM.Store.Units" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="Unit_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalItem_inherits_Item">
+    <End Role="Item" Type="JourListDM.Store.Items" Multiplicity="1" />
+    <End Role="PersonalItem" Type="JourListDM.Store.Items_PersonalItem" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonalItem">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardItem_inherits_Item">
+    <End Role="Item" Type="JourListDM.Store.Items" Multiplicity="1" />
+    <End Role="StandardItem" Type="JourListDM.Store.Items_StandardItem" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardItem">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="JourListDM" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="JourListDMContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Journals" EntityType="JourListDM.Journal" />
+          <EntitySet Name="Items" EntityType="JourListDM.Item" />
+          <EntitySet Name="InventoryLogs" EntityType="JourListDM.InventoryLog" />
+          <EntitySet Name="InventoryActions" EntityType="JourListDM.InventoryAction" />
+          <EntitySet Name="Activities" EntityType="JourListDM.Activity" />
+          <EntitySet Name="RecurrenceIntervals" EntityType="JourListDM.RecurrenceInterval" />
+          <AssociationSet Name="RecurrenceIntervalGoal" Association="JourListDM.RecurrenceIntervalGoal">
+            <End Role="RecurrenceInterval" EntitySet="RecurrenceIntervals" />
+            <End Role="Goal" EntitySet="Goals" />
+          </AssociationSet>
+          <EntitySet Name="Accomplishments" EntityType="JourListDM.Accomplishment" />
+          <AssociationSet Name="JournalAccomplishment" Association="JourListDM.JournalAccomplishment">
+            <End Role="Journal" EntitySet="Journals" />
+            <End Role="Accomplishment" EntitySet="Accomplishments" />
+          </AssociationSet>
+          <AssociationSet Name="GoalAccomplishment" Association="JourListDM.GoalAccomplishment">
+            <End Role="Goal" EntitySet="Goals" />
+            <End Role="Accomplishment" EntitySet="Accomplishments" />
+          </AssociationSet>
+          <AssociationSet Name="InventoryActionInventoryLog" Association="JourListDM.InventoryActionInventoryLog">
+            <End Role="InventoryAction" EntitySet="InventoryActions" />
+            <End Role="InventoryLog" EntitySet="InventoryLogs" />
+          </AssociationSet>
+          <EntitySet Name="ActivityLogs" EntityType="JourListDM.ActivityLog" />
+          <AssociationSet Name="JournalActivityLog" Association="JourListDM.JournalActivityLog">
+            <End Role="Journal" EntitySet="Journals" />
+            <End Role="ActivityLog" EntitySet="ActivityLogs" />
+          </AssociationSet>
+          <AssociationSet Name="ActivityActivityLog" Association="JourListDM.ActivityActivityLog">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="ActivityLog" EntitySet="ActivityLogs" />
+          </AssociationSet>
+          <EntitySet Name="Units" EntityType="JourListDM.Unit" />
+          <EntitySet Name="UnitTypes" EntityType="JourListDM.UnitType" />
+          <AssociationSet Name="UnitTypeUnit" Association="JourListDM.UnitTypeUnit">
+            <End Role="UnitType" EntitySet="UnitTypes" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
+          <AssociationSet Name="UnitActivityLog" Association="JourListDM.UnitActivityLog">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="ActivityLog" EntitySet="ActivityLogs" />
+          </AssociationSet>
+          <AssociationSet Name="UnitTypeItem" Association="JourListDM.UnitTypeItem">
+            <End Role="UnitType" EntitySet="UnitTypes" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <EntitySet Name="ItemCategories" EntityType="JourListDM.ItemCategory" />
+          <AssociationSet Name="ItemCategoryItem" Association="JourListDM.ItemCategoryItem">
+            <End Role="ItemCategory" EntitySet="ItemCategories" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <EntitySet Name="Inventories" EntityType="JourListDM.Inventory" />
+          <AssociationSet Name="InventoryInventoryLog" Association="JourListDM.InventoryInventoryLog">
+            <End Role="Inventory" EntitySet="Inventories" />
+            <End Role="InventoryLog" EntitySet="InventoryLogs" />
+          </AssociationSet>
+          <AssociationSet Name="ActivityGoal" Association="JourListDM.ActivityGoal">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="Goal" EntitySet="Goals" />
+          </AssociationSet>
+          <EntitySet Name="Goals" EntityType="JourListDM.Goal" />
+          <AssociationSet Name="ItemInventory" Association="JourListDM.ItemInventory">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <EntitySet Name="Members" EntityType="JourListDM.Member" />
+          <AssociationSet Name="MemberGoal" Association="JourListDM.MemberGoal">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Goal" EntitySet="Goals" />
+          </AssociationSet>
+          <AssociationSet Name="MemberJournal" Association="JourListDM.MemberJournal">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Journal" EntitySet="Journals" />
+          </AssociationSet>
+          <AssociationSet Name="MemberPersonalItem" Association="JourListDM.MemberPersonalItem">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="PersonalItem" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="MemberInventory" Association="JourListDM.MemberInventory">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <EntitySet Name="ItemInfoes" EntityType="JourListDM.ItemInfo" />
+          <AssociationSet Name="ItemItemInfo" Association="JourListDM.ItemItemInfo">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ItemInfo" EntitySet="ItemInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="ItemInfoInventoryLog" Association="JourListDM.ItemInfoInventoryLog">
+            <End Role="ItemInfo" EntitySet="ItemInfoes" />
+            <End Role="InventoryLog" EntitySet="InventoryLogs" />
+          </AssociationSet>
+          <EntitySet Name="ShoppingLists" EntityType="JourListDM.ShoppingList" />
+          <AssociationSet Name="InventoryShoppingList" Association="JourListDM.InventoryShoppingList">
+            <End Role="Inventory" EntitySet="Inventories" />
+            <End Role="ShoppingList" EntitySet="ShoppingLists" />
+          </AssociationSet>
+          <AssociationSet Name="InventoryUnit" Association="JourListDM.InventoryUnit">
+            <End Role="Inventory" EntitySet="Inventories" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
+          <AssociationSet Name="UnitTypeUnit1" Association="JourListDM.UnitTypeUnit1">
+            <End Role="UnitType" EntitySet="UnitTypes" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
+          <AssociationSet Name="UnitInventoryLog" Association="JourListDM.UnitInventoryLog">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="InventoryLog" EntitySet="InventoryLogs" />
+          </AssociationSet>
+          <AssociationSet Name="ActivityUnit" Association="JourListDM.ActivityUnit">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Accomplishments" Relationship="JourListDM.JournalAccomplishment" FromRole="Journal" ToRole="Accomplishment" />
+          <Property Type="String" Name="Story" Nullable="false" DefaultValue="" />
+          <Property Type="Int16" Name="HeartRate" Nullable="false" DefaultValue="0" />
+          <Property Type="Int16" Name="Weight" Nullable="false" DefaultValue="0" />
+          <NavigationProperty Name="ActivityLogs" Relationship="JourListDM.JournalActivityLog" FromRole="Journal" ToRole="ActivityLog" />
+          <Property Type="DateTime" Name="EntryDate" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="JourListDM.MemberJournal" FromRole="Journal" ToRole="Member" />
+          <Property Type="Boolean" Name="Encrypted" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="UnitType" Relationship="JourListDM.UnitTypeItem" FromRole="Item" ToRole="UnitType" />
+          <NavigationProperty Name="ItemCategory" Relationship="JourListDM.ItemCategoryItem" FromRole="Item" ToRole="ItemCategory" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="Inventories" Relationship="JourListDM.ItemInventory" FromRole="Item" ToRole="Inventory" />
+          <NavigationProperty Name="ItemInfoes" Relationship="JourListDM.ItemItemInfo" FromRole="Item" ToRole="ItemInfo" />
+        </EntityType>
+        <EntityType Name="InventoryLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="TransactionDate" Nullable="false" />
+          <Property Type="Double" Name="Quantity" Nullable="false" />
+          <Property Type="Double" Name="Cost" Nullable="false" />
+          <NavigationProperty Name="InventoryAction" Relationship="JourListDM.InventoryActionInventoryLog" FromRole="InventoryLog" ToRole="InventoryAction" />
+          <NavigationProperty Name="Inventory" Relationship="JourListDM.InventoryInventoryLog" FromRole="InventoryLog" ToRole="Inventory" />
+          <NavigationProperty Name="ItemInfo" Relationship="JourListDM.ItemInfoInventoryLog" FromRole="InventoryLog" ToRole="ItemInfo" />
+          <NavigationProperty Name="Unit" Relationship="JourListDM.UnitInventoryLog" FromRole="InventoryLog" ToRole="Unit" />
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Double" Name="Size" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <EntityType Name="InventoryAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="InventoryLogs" Relationship="JourListDM.InventoryActionInventoryLog" FromRole="InventoryAction" ToRole="InventoryLog" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="Int32" Name="Points" Nullable="false" DefaultValue="0" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="ActivityLogs" Relationship="JourListDM.ActivityActivityLog" FromRole="Activity" ToRole="ActivityLog" />
+          <NavigationProperty Name="Goals" Relationship="JourListDM.ActivityGoal" FromRole="Activity" ToRole="Goal" />
+          <NavigationProperty Name="Unit" Relationship="JourListDM.ActivityUnit" FromRole="Activity" ToRole="Unit" />
+          <Property Type="Double" Name="Quantity" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <EntityType Name="Goal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RecurrenceInterval" Relationship="JourListDM.RecurrenceIntervalGoal" FromRole="Goal" ToRole="RecurrenceInterval" />
+          <NavigationProperty Name="Accomplishments" Relationship="JourListDM.GoalAccomplishment" FromRole="Goal" ToRole="Accomplishment" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="Activity" Relationship="JourListDM.ActivityGoal" FromRole="Goal" ToRole="Activity" />
+          <Property Type="DateTime" Name="DateBegin" Nullable="false" />
+          <Property Type="DateTime" Name="DateEnd" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="JourListDM.MemberGoal" FromRole="Goal" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="RecurrenceInterval">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Goals" Relationship="JourListDM.RecurrenceIntervalGoal" FromRole="RecurrenceInterval" ToRole="Goal" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="Int64" Name="Minutes" Nullable="false" DefaultValue="0" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+        </EntityType>
+        <Association Name="RecurrenceIntervalGoal">
+          <End Type="JourListDM.RecurrenceInterval" Role="RecurrenceInterval" Multiplicity="1" />
+          <End Type="JourListDM.Goal" Role="Goal" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Accomplishment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Journal" Relationship="JourListDM.JournalAccomplishment" FromRole="Accomplishment" ToRole="Journal" />
+          <NavigationProperty Name="Goal" Relationship="JourListDM.GoalAccomplishment" FromRole="Accomplishment" ToRole="Goal" />
+          <Property Type="String" Name="Notes" Nullable="false" DefaultValue="" />
+        </EntityType>
+        <Association Name="JournalAccomplishment">
+          <End Type="JourListDM.Journal" Role="Journal" Multiplicity="1" />
+          <End Type="JourListDM.Accomplishment" Role="Accomplishment" Multiplicity="*" />
+        </Association>
+        <Association Name="GoalAccomplishment">
+          <End Type="JourListDM.Goal" Role="Goal" Multiplicity="1" />
+          <End Type="JourListDM.Accomplishment" Role="Accomplishment" Multiplicity="*" />
+        </Association>
+        <Association Name="InventoryActionInventoryLog">
+          <End Type="JourListDM.InventoryAction" Role="InventoryAction" Multiplicity="1" />
+          <End Type="JourListDM.InventoryLog" Role="InventoryLog" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Journal" Relationship="JourListDM.JournalActivityLog" FromRole="ActivityLog" ToRole="Journal" />
+          <NavigationProperty Name="Activity" Relationship="JourListDM.ActivityActivityLog" FromRole="ActivityLog" ToRole="Activity" />
+          <Property Type="String" Name="Notes" Nullable="false" DefaultValue="" />
+          <Property Type="Double" Name="Quantity" Nullable="false" DefaultValue="0" />
+          <NavigationProperty Name="Unit" Relationship="JourListDM.UnitActivityLog" FromRole="ActivityLog" ToRole="Unit" />
+          <Property Type="String" Name="Hyperlink" Nullable="false" DefaultValue="" />
+        </EntityType>
+        <Association Name="JournalActivityLog">
+          <End Type="JourListDM.Journal" Role="Journal" Multiplicity="1" />
+          <End Type="JourListDM.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+        </Association>
+        <Association Name="ActivityActivityLog">
+          <End Type="JourListDM.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="JourListDM.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="Double" Name="ConversionFactor" Nullable="false" />
+          <NavigationProperty Name="UnitType" Relationship="JourListDM.UnitTypeUnit" FromRole="Unit" ToRole="UnitType" />
+          <NavigationProperty Name="ActivityLogs" Relationship="JourListDM.UnitActivityLog" FromRole="Unit" ToRole="ActivityLog" />
+          <Property Type="String" Name="Abbreviation" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="Inventories" Relationship="JourListDM.InventoryUnit" FromRole="Unit" ToRole="Inventory" />
+          <NavigationProperty Name="InventoryLogs" Relationship="JourListDM.UnitInventoryLog" FromRole="Unit" ToRole="InventoryLog" />
+          <NavigationProperty Name="Activities" Relationship="JourListDM.ActivityUnit" FromRole="Unit" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="UnitType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="Units" Relationship="JourListDM.UnitTypeUnit" FromRole="UnitType" ToRole="Unit" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="Items" Relationship="JourListDM.UnitTypeItem" FromRole="UnitType" ToRole="Item" />
+          <NavigationProperty Name="DefaultUnit" Relationship="JourListDM.UnitTypeUnit1" FromRole="UnitType" ToRole="Unit" />
+        </EntityType>
+        <Association Name="UnitTypeUnit">
+          <End Type="JourListDM.UnitType" Role="UnitType" Multiplicity="1" />
+          <End Type="JourListDM.Unit" Role="Unit" Multiplicity="*" />
+        </Association>
+        <Association Name="UnitActivityLog">
+          <End Type="JourListDM.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="JourListDM.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+        </Association>
+        <Association Name="UnitTypeItem">
+          <End Type="JourListDM.UnitType" Role="UnitType" Multiplicity="1" />
+          <End Type="JourListDM.Item" Role="Item" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="JourListDM.ItemCategoryItem" FromRole="ItemCategory" ToRole="Item" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+        </EntityType>
+        <Association Name="ItemCategoryItem">
+          <End Type="JourListDM.ItemCategory" Role="ItemCategory" Multiplicity="1" />
+          <End Type="JourListDM.Item" Role="Item" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="OnHand" Nullable="false" DefaultValue="0" />
+          <Property Type="Double" Name="RequiredQuantity" Nullable="false" DefaultValue="0" />
+          <Property Type="Double" Name="RestockThreshold" Nullable="false" DefaultValue="-1" />
+          <NavigationProperty Name="InventoryLogs" Relationship="JourListDM.InventoryInventoryLog" FromRole="Inventory" ToRole="InventoryLog" />
+          <NavigationProperty Name="Item" Relationship="JourListDM.ItemInventory" FromRole="Inventory" ToRole="Item" />
+          <NavigationProperty Name="Member" Relationship="JourListDM.MemberInventory" FromRole="Inventory" ToRole="Member" />
+          <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="ShoppingList" Relationship="JourListDM.InventoryShoppingList" FromRole="Inventory" ToRole="ShoppingList" />
+          <NavigationProperty Name="Unit" Relationship="JourListDM.InventoryUnit" FromRole="Inventory" ToRole="Unit" />
+        </EntityType>
+        <Association Name="InventoryInventoryLog">
+          <End Type="JourListDM.Inventory" Role="Inventory" Multiplicity="1" />
+          <End Type="JourListDM.InventoryLog" Role="InventoryLog" Multiplicity="*" />
+        </Association>
+        <Association Name="ActivityGoal">
+          <End Type="JourListDM.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="JourListDM.Goal" Role="Goal" Multiplicity="*" />
+        </Association>
+        <Association Name="ItemInventory">
+          <End Type="JourListDM.Item" Role="Item" Multiplicity="1" />
+          <End Type="JourListDM.Inventory" Role="Inventory" Multiplicity="*" />
+        </Association>
+        <EntityType Name="PersonalItem" BaseType="JourListDM.Item" >
+          <NavigationProperty Name="Member" Relationship="JourListDM.MemberPersonalItem" FromRole="PersonalItem" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="Goals" Relationship="JourListDM.MemberGoal" FromRole="Member" ToRole="Goal" />
+          <NavigationProperty Name="Journals" Relationship="JourListDM.MemberJournal" FromRole="Member" ToRole="Journal" />
+          <NavigationProperty Name="PersonalItems" Relationship="JourListDM.MemberPersonalItem" FromRole="Member" ToRole="PersonalItem" />
+          <NavigationProperty Name="Inventories" Relationship="JourListDM.MemberInventory" FromRole="Member" ToRole="Inventory" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+        <Association Name="MemberGoal">
+          <End Type="JourListDM.Member" Role="Member" Multiplicity="1" />
+          <End Type="JourListDM.Goal" Role="Goal" Multiplicity="*" />
+        </Association>
+        <Association Name="MemberJournal">
+          <End Type="JourListDM.Member" Role="Member" Multiplicity="1" />
+          <End Type="JourListDM.Journal" Role="Journal" Multiplicity="*" />
+        </Association>
+        <Association Name="MemberPersonalItem">
+          <End Type="JourListDM.Member" Role="Member" Multiplicity="1" />
+          <End Type="JourListDM.PersonalItem" Role="PersonalItem" Multiplicity="*" />
+        </Association>
+        <Association Name="MemberInventory">
+          <End Type="JourListDM.Member" Role="Member" Multiplicity="1" />
+          <End Type="JourListDM.Inventory" Role="Inventory" Multiplicity="*" />
+        </Association>
+        <EntityType Name="StandardItem" BaseType="JourListDM.Item" />
+        <EntityType Name="ItemInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Item" Relationship="JourListDM.ItemItemInfo" FromRole="ItemInfo" ToRole="Item" />
+          <Property Type="String" Name="Barcode" Nullable="false" DefaultValue="" />
+          <Property Type="String" Name="Hyperlink" Nullable="false" DefaultValue="" />
+          <Property Type="String" Name="Quantity" Nullable="false" />
+          <Property Type="String" Name="Brand" Nullable="false" DefaultValue="" />
+          <NavigationProperty Name="InventoryLogs" Relationship="JourListDM.ItemInfoInventoryLog" FromRole="ItemInfo" ToRole="InventoryLog" />
+        </EntityType>
+        <Association Name="ItemItemInfo">
+          <End Type="JourListDM.Item" Role="Item" Multiplicity="1" />
+          <End Type="JourListDM.ItemInfo" Role="ItemInfo" Multiplicity="*" />
+        </Association>
+        <Association Name="ItemInfoInventoryLog">
+          <End Type="JourListDM.ItemInfo" Role="ItemInfo" Multiplicity="0..1" />
+          <End Type="JourListDM.InventoryLog" Role="InventoryLog" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ShoppingList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Inventory" Relationship="JourListDM.InventoryShoppingList" FromRole="ShoppingList" ToRole="Inventory" />
+          <Property Type="Boolean" Name="InCart" Nullable="false" DefaultValue="False" />
+          <Property Type="Double" Name="QuantityNeeded" Nullable="false" DefaultValue="1" />
+          <Property Type="Double" Name="SizeNeeded" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <Association Name="InventoryShoppingList">
+          <End Type="JourListDM.Inventory" Role="Inventory" Multiplicity="1" />
+          <End Type="JourListDM.ShoppingList" Role="ShoppingList" Multiplicity="0..1" />
+        </Association>
+        <Association Name="InventoryUnit">
+          <End Type="JourListDM.Inventory" Role="Inventory" Multiplicity="*" />
+          <End Type="JourListDM.Unit" Role="Unit" Multiplicity="1" />
+        </Association>
+        <Association Name="UnitTypeUnit1">
+          <End Type="JourListDM.UnitType" Role="UnitType" Multiplicity="0..1" />
+          <End Type="JourListDM.Unit" Role="Unit" Multiplicity="0..1" />
+        </Association>
+        <Association Name="UnitInventoryLog">
+          <End Type="JourListDM.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="JourListDM.InventoryLog" Role="InventoryLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InventoryLog">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActivityUnit">
+          <End Type="JourListDM.Activity" Role="Activity" Multiplicity="*" />
+          <End Type="JourListDM.Unit" Role="Unit" Multiplicity="1" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JourListDMStoreContainer" CdmEntityContainer="JourListDMContainer">
+    <EntitySetMapping Name="Journals">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Journal)">
+        <MappingFragment StoreEntitySet="Journals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Story" ColumnName="Story" />
+          <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Encrypted" ColumnName="Encrypted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Item)">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.PersonalItem)">
+        <MappingFragment StoreEntitySet="Items_PersonalItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.StandardItem)">
+        <MappingFragment StoreEntitySet="Items_StandardItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventoryLogs">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.InventoryLog)">
+        <MappingFragment StoreEntitySet="InventoryLogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventoryActions">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.InventoryAction)">
+        <MappingFragment StoreEntitySet="InventoryActions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Activity)">
+        <MappingFragment StoreEntitySet="Activities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecurrenceIntervals">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.RecurrenceInterval)">
+        <MappingFragment StoreEntitySet="RecurrenceIntervals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accomplishments">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Accomplishment)">
+        <MappingFragment StoreEntitySet="Accomplishments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityLogs">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.ActivityLog)">
+        <MappingFragment StoreEntitySet="ActivityLogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Hyperlink" ColumnName="Hyperlink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Unit)">
+        <MappingFragment StoreEntitySet="Units">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.UnitType)">
+        <MappingFragment StoreEntitySet="UnitTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.ItemCategory)">
+        <MappingFragment StoreEntitySet="ItemCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Inventory)">
+        <MappingFragment StoreEntitySet="Inventories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OnHand" ColumnName="OnHand" />
+          <ScalarProperty Name="RequiredQuantity" ColumnName="RequiredQuantity" />
+          <ScalarProperty Name="RestockThreshold" ColumnName="RestockThreshold" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goals">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Goal)">
+        <MappingFragment StoreEntitySet="Goals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.Member)">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemInfoes">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.ItemInfo)">
+        <MappingFragment StoreEntitySet="ItemInfoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="Hyperlink" ColumnName="Hyperlink" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoppingLists">
+      <EntityTypeMapping TypeName="IsTypeOf(JourListDM.ShoppingList)">
+        <MappingFragment StoreEntitySet="ShoppingLists">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InCart" ColumnName="InCart" />
+          <ScalarProperty Name="QuantityNeeded" ColumnName="QuantityNeeded" />
+          <ScalarProperty Name="SizeNeeded" ColumnName="SizeNeeded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RecurrenceIntervalGoal" TypeName="JourListDM.RecurrenceIntervalGoal" StoreEntitySet="Goals">
+      <EndProperty Name="RecurrenceInterval">
+        <ScalarProperty Name="Id" ColumnName="RecurrenceInterval_Id" />
+      </EndProperty>
+      <EndProperty Name="Goal">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="JournalAccomplishment" TypeName="JourListDM.JournalAccomplishment" StoreEntitySet="Accomplishments">
+      <EndProperty Name="Journal">
+        <ScalarProperty Name="Id" ColumnName="Journal_Id" />
+      </EndProperty>
+      <EndProperty Name="Accomplishment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GoalAccomplishment" TypeName="JourListDM.GoalAccomplishment" StoreEntitySet="Accomplishments">
+      <EndProperty Name="Goal">
+        <ScalarProperty Name="Id" ColumnName="Goal_Id" />
+      </EndProperty>
+      <EndProperty Name="Accomplishment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InventoryActionInventoryLog" TypeName="JourListDM.InventoryActionInventoryLog" StoreEntitySet="InventoryLogs">
+      <EndProperty Name="InventoryAction">
+        <ScalarProperty Name="Id" ColumnName="InventoryAction_Id" />
+      </EndProperty>
+      <EndProperty Name="InventoryLog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="JournalActivityLog" TypeName="JourListDM.JournalActivityLog" StoreEntitySet="ActivityLogs">
+      <EndProperty Name="Journal">
+        <ScalarProperty Name="Id" ColumnName="Journal_Id" />
+      </EndProperty>
+      <EndProperty Name="ActivityLog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActivityActivityLog" TypeName="JourListDM.ActivityActivityLog" StoreEntitySet="ActivityLogs">
+      <EndProperty Name="Activity">
+        <ScalarProperty Name="Id" ColumnName="Activity_Id" />
+      </EndProperty>
+      <EndProperty Name="ActivityLog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UnitTypeUnit" TypeName="JourListDM.UnitTypeUnit" StoreEntitySet="Units">
+      <EndProperty Name="UnitType">
+        <ScalarProperty Name="Id" ColumnName="UnitType_Id" />
+      </EndProperty>
+      <EndProperty Name="Unit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UnitActivityLog" TypeName="JourListDM.UnitActivityLog" StoreEntitySet="ActivityLogs">
+      <EndProperty Name="Unit">
+        <ScalarProperty Name="Id" ColumnName="Unit_Id" />
+      </EndProperty>
+      <EndProperty Name="ActivityLog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UnitTypeItem" TypeName="JourListDM.UnitTypeItem" StoreEntitySet="Items">
+      <EndProperty Name="UnitType">
+        <ScalarProperty Name="Id" ColumnName="UnitType_Id" />
+      </EndProperty>
+      <EndProperty Name="Item">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ItemCategoryItem" TypeName="JourListDM.ItemCategoryItem" StoreEntitySet="Items">
+      <EndProperty Name="ItemCategory">
+        <ScalarProperty Name="Id" ColumnName="ItemCategory_Id" />
+      </EndProperty>
+      <EndProperty Name="Item">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InventoryInventoryLog" TypeName="JourListDM.InventoryInventoryLog" StoreEntitySet="InventoryLogs">
+      <EndProperty Name="Inventory">
+        <ScalarProperty Name="Id" ColumnName="Inventory_Id" />
+      </EndProperty>
+      <EndProperty Name="InventoryLog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActivityGoal" TypeName="JourListDM.ActivityGoal" StoreEntitySet="Goals">
+      <EndProperty Name="Activity">
+        <ScalarProperty Name="Id" ColumnName="Activity_Id" />
+      </EndProperty>
+      <EndProperty Name="Goal">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ItemInventory" TypeName="JourListDM.ItemInventory" StoreEntitySet="Inventories">
+      <EndProperty Name="Item">
+        <ScalarProperty Name="Id" ColumnName="Item_Id" />
+      </EndProperty>
+      <EndProperty Name="Inventory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberGoal" TypeName="JourListDM.MemberGoal" StoreEntitySet="Goals">
+      <EndProperty Name="Member">
+        <ScalarProperty Name="Id" ColumnName="Member_Id" />
+      </EndProperty>
+      <EndProperty Name="Goal">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberJournal" TypeName="JourListDM.MemberJournal" StoreEntitySet="Journals">
+      <EndProperty Name="Member">
+        <ScalarProperty Name="Id" ColumnName="Member_Id" />
+      </EndProperty>
+      <EndProperty Name="Journal">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberPersonalItem" TypeName="JourListDM.MemberPersonalItem" StoreEntitySet="Items_PersonalItem">
+      <EndProperty Name="Member">
+        <ScalarProperty Name="Id" ColumnName="Member_Id" />
+      </EndProperty>
+      <EndProperty Name="PersonalItem">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberInventory" TypeName="JourListDM.MemberInventory" StoreEntitySet="Inventories">
+      <EndProperty Name="Member">
+        <ScalarProperty Name="Id" ColumnName="Member_Id" />
+      </EndProperty>
+      <EndProperty Name="Inventory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ItemItemInfo" TypeName="JourListDM.ItemItemInfo" StoreEntitySet="ItemInfoes">
+      <EndProperty Name="Item">
+        <ScalarProperty Name="Id" ColumnName="Item_Id" />
+      </EndProperty>
+      <EndProperty Name="ItemInfo">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ItemInfoInventoryLog" TypeName="JourListDM.ItemInfoInventoryLog" StoreEntitySet="InventoryLogs">
+      <EndProperty Name="ItemInfo">
+        <ScalarProperty Name="Id" ColumnName="ItemInfo_Id" />
+      </EndProperty>
+      <EndProperty Name="InventoryLog">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ItemInfo_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InventoryShoppingList" TypeName="JourListDM.InventoryShoppingList" StoreEntitySet="ShoppingLists">
+      <EndProperty Name="Inventory">
+        <ScalarProperty Name="Id" ColumnName="Inventory_Id" />
+      </EndProperty>
+      <EndProperty Name="ShoppingList">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InventoryUnit" TypeName="JourListDM.InventoryUnit" StoreEntitySet="Inventories">
+      <EndProperty Name="Unit">
+        <ScalarProperty Name="Id" ColumnName="Unit_Id" />
+      </EndProperty>
+      <EndProperty Name="Inventory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UnitTypeUnit1" TypeName="JourListDM.UnitTypeUnit1" StoreEntitySet="Units">
+      <EndProperty Name="UnitType">
+        <ScalarProperty Name="Id" ColumnName="UnitTypeUnit1_Unit_Id" />
+      </EndProperty>
+      <EndProperty Name="Unit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="UnitTypeUnit1_Unit_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActivityUnit" TypeName="JourListDM.ActivityUnit" StoreEntitySet="Activities">
+      <EndProperty Name="Unit">
+        <ScalarProperty Name="Id" ColumnName="Unit_Id" />
+      </EndProperty>
+      <EndProperty Name="Activity">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="jourlist" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="JourListDM" ZoomLevel="73" >
+        <EntityTypeShape EntityType="JourListDM.Journal" Width="1.5" PointX="0.5" PointY="0.5" Height="2.7494921875" />
+        <EntityTypeShape EntityType="JourListDM.Item" Width="1.5" PointX="9" PointY="3.625" Height="2.3648893229166665" />
+        <EntityTypeShape EntityType="JourListDM.InventoryLog" Width="1.5" PointX="5.5" PointY="8.75" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="JourListDM.InventoryAction" Width="1.5" PointX="3.125" PointY="10" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="JourListDM.Activity" Width="1.5" PointX="3" PointY="3.25" Height="2.5571907552083326" />
+        <EntityTypeShape EntityType="JourListDM.Goal" Width="1.75" PointX="5.25" PointY="1.25" Height="1.59568359375" />
+        <EntityTypeShape EntityType="JourListDM.RecurrenceInterval" Width="2.375" PointX="5.5" PointY="4.375" Height="1.9802864583333335" IsExpanded="true" />
+        <AssociationConnector Association="JourListDM.RecurrenceIntervalGoal">
+          <ConnectorPoint PointX="6.25" PointY="4.375" />
+          <ConnectorPoint PointX="6.25" PointY="3.8071907552083331" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.Accomplishment" Width="1.5" PointX="3.75" PointY="2.5" Height="1.7879850260416665" />
+        <AssociationConnector Association="JourListDM.JournalAccomplishment">
+          <ConnectorPoint PointX="2" PointY="2.87474609375" />
+          <ConnectorPoint PointX="3.2604166666666665" PointY="2.8747460937499993" />
+          <ConnectorPoint PointX="3.4270833333333335" PointY="2.87474609375" />
+          <ConnectorPoint PointX="3.75" PointY="2.87474609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.GoalAccomplishment">
+          <ConnectorPoint PointX="5.25" PointY="1.8749995" />
+          <ConnectorPoint PointX="4.46875" PointY="1.8749995" />
+          <ConnectorPoint PointX="4.46875" PointY="2.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.InventoryActionInventoryLog">
+          <ConnectorPoint PointX="4.625" PointY="10.797841796875" />
+          <ConnectorPoint PointX="5.5" PointY="10.797841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.ActivityLog" Width="1.5" PointX="0.5" PointY="4" Height="2.3648893229166665" />
+        <AssociationConnector Association="JourListDM.JournalActivityLog">
+          <ConnectorPoint PointX="1.25" PointY="3.2494921875" />
+          <ConnectorPoint PointX="1.25" PointY="4" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.ActivityActivityLog">
+          <ConnectorPoint PointX="3" PointY="4.9035953776041659" />
+          <ConnectorPoint PointX="2" PointY="4.9035953776041659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.Unit" Width="1.5" PointX="0.5" PointY="7.875" Height="2.5571907552083335" />
+        <EntityTypeShape EntityType="JourListDM.UnitType" Width="1.5" PointX="3.125" PointY="6.875" Height="2.1725878906249996" />
+        <AssociationConnector Association="JourListDM.UnitTypeUnit">
+          <ConnectorPoint PointX="3.125" PointY="8.8265036976337434" />
+          <ConnectorPoint PointX="2" PointY="8.8265036976337434" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.UnitActivityLog">
+          <ConnectorPoint PointX="1.25" PointY="7.875" />
+          <ConnectorPoint PointX="1.25" PointY="6.3648893229166665" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.UnitTypeItem">
+          <ConnectorPoint PointX="4.250002" PointY="6.875" />
+          <ConnectorPoint PointX="4.250002" PointY="6.6052864583333335" />
+          <ConnectorPoint PointX="8.625" PointY="6.6052864583333335" />
+          <ConnectorPoint PointX="8.625" PointY="5.7225856491800293" />
+          <ConnectorPoint PointX="9" PointY="5.7225856491800293" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.ItemCategory" Width="1.5" PointX="9" PointY="2.25" Height="0.4" IsExpanded="false" />
+        <AssociationConnector Association="JourListDM.ItemCategoryItem">
+          <ConnectorPoint PointX="9.75" PointY="2.65" />
+          <ConnectorPoint PointX="9.75" PointY="3.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.Inventory" Width="1.5" PointX="10.125" PointY="8.5" Height="2.5571907552083335" />
+        <AssociationConnector Association="JourListDM.InventoryInventoryLog">
+          <ConnectorPoint PointX="10.125" PointY="10.434591471354167" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="10.434591471354167" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="10.434591471354167" />
+          <ConnectorPoint PointX="7" PointY="10.434591471354167" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.ActivityGoal">
+          <ConnectorPoint PointX="3.34375" PointY="3.25" />
+          <ConnectorPoint PointX="3.34375" PointY="1.5312472499999992" />
+          <ConnectorPoint PointX="5.25" PointY="1.5312472499999992" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.ItemInventory">
+          <ConnectorPoint PointX="10.3125" PointY="5.9898893229166665" />
+          <ConnectorPoint PointX="10.3125" PointY="8.5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.PersonalItem" Width="1.5" PointX="11.125" PointY="3.125" Height="1.2110807291666665" />
+        <InheritanceConnector EntityType="JourListDM.PersonalItem" ManuallyRouted="false" >
+          <ConnectorPoint PointX="10.5" PointY="3.9490513924925343" />
+          <ConnectorPoint PointX="11.125" PointY="3.9490513924925343" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="JourListDM.Member" Width="1.5" PointX="13.125" PointY="1.5" Height="2.364889322916667" />
+        <AssociationConnector Association="JourListDM.MemberGoal">
+          <ConnectorPoint PointX="13.125" PointY="1.7316346728726737" />
+          <ConnectorPoint PointX="7" PointY="1.7316346728726737" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.MemberJournal">
+          <ConnectorPoint PointX="13.875" PointY="1.5" />
+          <ConnectorPoint PointX="13.875" PointY="0.84375" />
+          <ConnectorPoint PointX="2" PointY="0.84375" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.MemberPersonalItem">
+          <ConnectorPoint PointX="13.125" PointY="3.4949446614583337" />
+          <ConnectorPoint PointX="12.625" PointY="3.4949446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.MemberInventory">
+          <ConnectorPoint PointX="13.875" PointY="3.864889322916667" />
+          <ConnectorPoint PointX="13.875" PointY="9.7785953776041659" />
+          <ConnectorPoint PointX="11.625" PointY="9.7785953776041659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.StandardItem" Width="1.5" PointX="11.25" PointY="4.875" Height="1.0187792968750031" />
+        <InheritanceConnector EntityType="JourListDM.StandardItem" ManuallyRouted="false" >
+          <ConnectorPoint PointX="10.5" PointY="5.2007798141899366" />
+          <ConnectorPoint PointX="11.25" PointY="5.2007798141899366" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="JourListDM.ItemInfo" Width="1.5" PointX="8.125" PointY="7" Height="2.3648893229166674" />
+        <AssociationConnector Association="JourListDM.ItemItemInfo">
+          <ConnectorPoint PointX="9.3125" PointY="5.9898893229166665" />
+          <ConnectorPoint PointX="9.3125" PointY="7" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.ItemInfoInventoryLog">
+          <ConnectorPoint PointX="8.125" PointY="9.0574446614583337" />
+          <ConnectorPoint PointX="7" PointY="9.0574446614583337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="JourListDM.ShoppingList" Width="1.5" PointX="12.5" PointY="11.625" Height="1.9802864583333317" />
+        <AssociationConnector Association="JourListDM.InventoryShoppingList">
+          <ConnectorPoint PointX="11.625" PointY="10.525492220052085" />
+          <ConnectorPoint PointX="13.203125" PointY="10.525492220052085" />
+          <ConnectorPoint PointX="13.203125" PointY="11.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.InventoryUnit">
+          <ConnectorPoint PointX="10.125" PointY="9.8997378971354166" />
+          <ConnectorPoint PointX="7.25" PointY="9.8997378971354166" />
+          <ConnectorPoint PointX="7.25" PointY="11.84568359375" />
+          <ConnectorPoint PointX="1.25" PointY="11.84568359375" />
+          <ConnectorPoint PointX="1.25" PointY="10.6244921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.UnitTypeUnit1">
+          <ConnectorPoint PointX="3.125" PointY="8.2882518488168717" />
+          <ConnectorPoint PointX="2" PointY="8.2882518488168717" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.UnitInventoryLog">
+          <ConnectorPoint PointX="2" PointY="9.6199446614583337" />
+          <ConnectorPoint PointX="5.5" PointY="9.6199446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="JourListDM.ActivityUnit">
+          <ConnectorPoint PointX="2.9999999999999991" PointY="5.8071907552083326" />
+          <ConnectorPoint PointX="2.625" PointY="6.1821907552083317" />
+          <ConnectorPoint PointX="2.625" PointY="7.9126182723356244" />
+          <ConnectorPoint PointX="2" PointY="7.9126182723356244" />
+        </AssociationConnector>
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

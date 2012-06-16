@@ -1,0 +1,348 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div id="GoalTable"  style="width: 580px; margin-left: auto; margin-right: auto;"></div>
+
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#GoalTable').jtable({
+            title: 'Goals',
+            actions: {
+                listAction: '/Journal/GoalList',
+                deleteAction: '/Journal/DeleteGoal',
+                updateAction: '/Journal/UpdateGoal',
+                createAction: '/Journal/CreateGoal'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '60%'
+                },
+                Points: {
+                    title: 'Points',
+                    list: true,
+                    width: '10%',
+                    defaultValue: '0'
+                },
+                ReccurenceId: {
+                    title: 'Interval',
+                    width: '15%',
+                    options: '/Options/RecurrenceIntervals'
+                },
+                Active: {
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'No', 'true': 'Yes' },
+                    defaultValue: 'true'
+                }
+            }
+        });
+
+        //Load goal list from server
+        $('#GoalTable').jtable('load');
+    });
+</script>
+
+<div id="ActivityTable"  style="width: 580px; margin-left: auto; margin-right: auto;"></div>
+
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#ActivityTable').jtable({
+            title: 'Activities',
+            actions: {
+                listAction: '/DataManagement/ActivityList',
+                deleteAction: '/DataManagement/DeleteActivity',
+                updateAction: '/DataManagement/UpdateActivity',
+                createAction: '/DataManagement/CreateActivity'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '60%'
+                },
+                Points: {
+                    title: 'Points',
+                    list: true,
+                    width: '10%',
+                    defaultValue: '0'
+                },
+                Quantity: {
+                    title: 'Quantity',
+                    list: true,
+                    width: '10%',
+                    defaultValue: '0'
+                },
+                UnitId: {
+                    title: 'Default Unit',
+                    width: '15%',
+                    options: '/Options/Units'
+                },
+                Active: {
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'No', 'true': 'Yes' },
+                    defaultValue: 'true'
+                }
+            }
+        });
+
+        //Load activity list from server
+        $('#ActivityTable').jtable('load');
+    });
+</script>
+
+<div id="UnitTable"  style="width: 580px; margin-left: auto; margin-right: auto;"></div>
+
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#UnitTable').jtable({
+            title: 'Units',
+            actions: {
+                listAction: '/DataManagement/UnitList',
+                deleteAction: '/DataManagement/DeleteUnit',
+                updateAction: '/DataManagement/UpdateUnit',
+                createAction: '/DataManagement/CreateUnit'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '45%'
+                },
+                Abbreviation: {
+                    title: 'Abbreviation',
+                    width: '10%'
+                },
+                ConversionFactor: {
+                    title: 'Conversion',
+                    width: '15%',
+                    defaultValue: '1' 
+                },
+                UnitTypeId: {
+                    title: 'Unit Type',
+                    width: '15%',
+                    options: '/Options/UnitTypes'
+                },
+                Active: {
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'No', 'true': 'Yes' },
+                    defaultValue: 'true'
+                }
+            }
+        });
+
+        //Load activity list from server
+        $('#UnitTable').jtable('load');
+    });
+</script>
+
+<div id="UnitTypeTable"  style="width: 580px; margin-left: auto; margin-right: auto; "></div>
+
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#UnitTypeTable').jtable({
+            title: 'Unit Types',
+            actions: {
+                listAction: '/DataManagement/UnitTypeList',
+                deleteAction: '/DataManagement/DeleteUnitType',
+                updateAction: '/DataManagement/UpdateUnitType',
+                createAction: '/DataManagement/CreateUnitType'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '85%'
+                },
+                Active: {
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'No', 'true': 'Yes' },
+                    defaultValue: 'true'
+                }
+            }
+        });
+
+        //Load activity list from server
+        $('#UnitTypeTable').jtable('load');
+    });
+</script>
+
+<div id="ItemCategoryTable"  style="width: 580px; margin-left: auto; margin-right: auto; "></div>
+
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#ItemCategoryTable').jtable({
+            title: 'Item Categories',
+            actions: {
+                listAction: '/DataManagement/ItemCategoryList',
+                deleteAction: '/DataManagement/DeleteItemCategory',
+                updateAction: '/DataManagement/UpdateItemCategory',
+                createAction: '/DataManagement/CreateItemCategory'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '85%'
+                },
+                Active: {
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'No', 'true': 'Yes' },
+                    defaultValue: 'true'
+                }
+            }
+        });
+
+        //Load activity list from server
+        $('#ItemCategoryTable').jtable('load');
+    });
+</script>
+
+<div id="RecurrenceIntervalTable"  style="width: 580px; margin-left: auto; margin-right: auto;"></div>
+
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#RecurrenceIntervalTable').jtable({
+            title: 'Recurrence Intervals',
+            actions: {
+                listAction: '/DataManagement/RecurrenceIntervalList',
+                deleteAction: '/DataManagement/DeleteRecurrenceInterval',
+                updateAction: '/DataManagement/UpdateRecurrenceInterval',
+                createAction: '/DataManagement/CreateRecurrenceInterval'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '60%'
+                },
+                Minutes: {
+                    title: 'Minutes',
+                    width: '10%',
+                    defaultValue: '0'
+                },
+                Active: {
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'No', 'true': 'Yes' },
+                    defaultValue: 'true'
+                }
+            }
+        });
+
+        //Load goal list from server
+        $('#RecurrenceIntervalTable').jtable('load');
+    });
+</script>
+
+<div id="ItemTable"  style="width: 580px; margin-left: auto; margin-right: auto;"></div>
+
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#ItemTable').jtable({
+            title: 'Items',
+            actions: {
+                listAction: '/DataManagement/ItemList',
+                deleteAction: '/DataManagement/DeleteItem',
+                updateAction: '/DataManagement/UpdateItem',
+                createAction: '/DataManagement/CreateItem'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '20%'
+                },
+                Hyperlink: {
+                    title: 'Hyperlink',
+                    width: '20%'
+                }, 
+                Barcode: {
+                    title: 'Barcode',
+                    width: '20%'
+                },
+                CategoryId: {
+                    title: 'Category',
+                    width: '15%',
+                    options: '/Options/ItemCategories'
+                },
+                UnitTypeId: {
+                    title: 'Unit Type',
+                    width: '10%',
+                    options: '/Options/UnitTypes'
+                },
+                Active: {
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'No', 'true': 'Yes' },
+                    defaultValue: 'true'
+                }
+            }
+        });
+
+        //Load activity list from server
+        $('#ItemTable').jtable('load');
+    });
+</script>

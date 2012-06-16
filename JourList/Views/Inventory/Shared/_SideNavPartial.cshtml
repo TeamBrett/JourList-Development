@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div style="float:left;">
+        <ul id="sidenav">
+            <li>@Html.ActionLink("Inventory", "Index", "Inventory")</li>
+            <li>@Html.ActionLink("Add", "Add", "Inventory")</li>
+            <li>@Html.ActionLink("Use", "Use", "Inventory")</li>
+            <li>@Html.ActionLink("Shopping List", "ShoppingList", "Inventory")</li>
+        </ul>
+    </div>
+    <div>
+        @RenderBody()
+        <br />
+        <br />
+        <br />
+    </div>
+    <div style="clear:both;"></div>

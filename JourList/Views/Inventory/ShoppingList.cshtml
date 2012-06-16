@@ -1,0 +1,84 @@
+﻿@model IEnumerable<JourList.Models.ShoppingListModel>
+
+@{
+    ViewBag.Title = "ShoppingList";
+}
+<script type ="text/javascript">
+        function updateCart(ele, InvId) {
+            $.ajax({
+                url: '/Inventory/UpdateCart/',
+                type: 'POST',
+                dataType: 'json',
+                data: 'InvId=' + InvId,
+                async: true,
+                success: function (data, textStatus, jqXHR) {
+                    if (data.Result != 'OK') {
+                        alert(data.Message);
+                        return;
+                    }
+
+                    if (ele.src.indexOf('@Url.Content("~/Content/CheckMark.png")') == -1) {
+                        ele.src = '@Url.Content("~/Content/CheckMark.png")';
+                        ele.alt = 'Checked';
+                    }
+                    else {
+                        ele.src = '@Url.Content("~/Content/XMark.png")';
+                        ele.alt = 'Not Checked';
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(textStatus + ": " + errorThrown);
+                }
+            });
+        }
+</script>
+
+<h2>ShoppingList</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.LabelFor(model => model.First().InCart)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.First().Description)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.First().Size)
+        @*</th>
+        <th>*@
+            @Html.LabelFor(model => model.First().Units)
+        @*</th>
+        <th>*@
+            @Html.LabelFor(model => model.First().Quantity)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>     
+        <td style="text-align: center;">
+        @if (item.InCart)
+        {
+            <img alt="Checked" onclick="updateCart(this,'@item.InvId');" src="@Url.Content("~/Content/CheckMark.png")" style="width: 100%; " />
+        }
+        else
+        {
+            <img alt="Not Checked" onclick="updateCart(this,'@item.InvId');" src="@Url.Content("~/Content/XMark.png")" style="width: 100%; " />
+        }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+@*        </td>
+        <td>*@
+            @Html.DisplayFor(modelItem => item.Units)
+@*        </td>
+        <td>*@
+            x @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+    </tr>
+}
+
+</table>

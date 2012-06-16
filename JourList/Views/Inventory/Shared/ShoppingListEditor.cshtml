@@ -1,0 +1,73 @@
+﻿<script type ="text/javascript">
+    $(document).ready(function () {
+    //Prepare jtable plugin
+        $('#ShoppingListTable').jtable({
+            selecting: true, //Enable selecting
+            multiselect: false, //Allow multiple selecting
+            selectingCheckboxes: false, //Show checkboxes on first column
+            title: 'Shopping List',
+            actions: {
+                listAction: '/Inventory/GetShoppingList'
+                //,deleteAction: '/Inventory/DeleteShoppingList'
+                //,updateAction: '/Inventory/UpdateShoppingList'
+                //,createAction: '/DataManagement/CreateShoppingList'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    list: true,
+                    edit: false,
+                    title: 'Description',
+                    width: '40%'
+                },
+                Units: {
+                    list: false,
+                    edit: false,
+                    title: 'Units',
+                    defaultValue: ''
+                },
+                Quantity: {
+                    edit: false,
+                    list: false,
+                    title: 'Quantity',
+                    width: '10%',
+                    //options: '/Options/ItemCategories'
+                },
+                Size: {
+                    edit: false,
+                    list: false,
+                    title: 'Size',
+                    defaultValue: '0'
+                },
+                InCart: {
+                    edit: false,
+                    list: false,
+                    title: 'Unit Type',
+                    width: '10%',
+                    options: '/Options/UnitTypes'
+                }
+            },
+            //Register to selectionChanged event
+            selectionChanged: function () {
+                // Populate Transaction Editor
+            }
+        });
+
+        //Load activity list from server
+        $('#ShoppingListTable').jtable('load');
+    });
+</script>
+
+<div id="ShoppingListTable"  style="
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+    ">
+</div>
+

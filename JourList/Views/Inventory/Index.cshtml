@@ -1,0 +1,273 @@
+﻿@{
+    ViewBag.Title = "Inventory";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $('#PersonalItemsTable').jtable({
+            columnSelectable: false,
+            title: 'My Items',
+            actions: {
+                 listAction:   '/Inventory/GetInventory'
+                ,deleteAction: '/Inventory/DeleteItem'
+                ,updateAction: '/Inventory/UpdateItem'
+                ,createAction: '/Inventory/CreateItem'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    title: 'Description',
+                    width: '40%'
+                },
+                Hyperlink: {
+                    title: 'Hyperlink',
+                    list: false,
+                    defaultValue: ''
+                },
+                CategoryId: {
+                    title: 'Category',
+                    width: '10%',
+                    options: '/Options/ItemCategories'
+                },
+                OnHand: {
+                    title: 'On Hand',
+                    width: '10%',
+                    defaultValue: '0'
+                },
+                RestockThreshold: {
+                    title: 'Restock At',
+                    width: '10%',
+                    defaultValue: '0'
+                },
+                RequiredQuantity: {
+                    title: 'Restock To',
+                    width: '10%',
+                    defaultValue: '0'
+                },
+                Barcode: {
+                    title: 'Barcode',
+                    list: false,
+                    defaultValue: ''
+                },
+                UnitId: {
+                    title: 'Units',
+                    width: '10%',
+                    options: '/Options/Units'
+                },
+                UnitTypeId: {
+                    list: false,
+                    title: 'Unit Type',
+                    width: '10%',
+                    options: '/Options/UnitTypes'
+                },
+                Active: {
+                    edit: true,
+                    title: 'Active?',
+                    width: '10%',
+                    type: 'checkbox',
+                    values: { 'false': 'Inactive', 'true': 'Active' }
+                }
+            },
+            //Register to recordDeleted event
+            recordDeleted: function (event, data) {
+                if (data.record.IsPersonal == true) {
+                    return;
+                }
+                $('#StandardItemsTable').jtable('addRecord', {
+                    record: data.record,
+                    clientOnly: true
+                });
+            }
+
+        });
+
+        //Load activity list from server
+        $('#PersonalItemsTable').jtable('load');
+    });
+</script>
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        $('#ActiveStandardCheckbox').click(function () {
+            $('#StandardItemsTable').jtable('load', { ShowInactive: $(this).is(':checked') });
+        });
+
+        $('#ActivePersonalCheckbox').click(function () {
+            $('#PersonalItemsTable').jtable('load', { ShowInactive: $(this).is(':checked') });
+        });
+
+    });
+</script>
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+        $('#AddStandardItemButton').click(function () {
+            //Get all selected rows
+            var $selectedRows = $('#StandardItemsTable').jtable('selectedRows');
+
+            $('#StandardItemsToAdd').empty();
+            if ($selectedRows.length > 0) {
+                //Show selected rows
+                $selectedRows.each(function () {
+                    var record = $(this).data('record');
+                    $.ajax({
+                        url: '/Inventory/AddStandardItemToInventory',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: 'ItemId=' + record.Id,
+                        async: true,
+                        success: function (data) {
+                            if (data.Result != 'OK') {
+                                alert(data.Message);
+                                return;
+                            }
+                            $('#PersonalItemsTable').jtable('addRecord', {
+                                record: data.Record,
+                                clientOnly: true
+                            });
+                            $('#StandardItemsTable').jtable('deleteRecord', {
+                                key: data.Record.Id,
+                                clientOnly: true
+                            });
+               
+                        }
+                        ,
+                        error: function () {
+                            alert("Error Adding Item");
+                        }
+                    });
+                });
+            } else {
+                //No rows selected
+                $('#StandardItemsToAdd').append('No row selected! Select rows to see here...');
+            }
+        });
+    });
+</script>
+<script type ="text/javascript">
+    $(document).ready(function () {
+
+
+        //Prepare jtable plugin
+        $('#StandardItemsTable').jtable({
+            columnSelectable: false,
+            selecting: true, //Enable selecting
+            multiselect: false, //Allow multiple selecting
+            selectingCheckboxes: true, //Show checkboxes on first column
+            title: 'Standard Items',
+            actions: {
+                listAction: '/Inventory/GetStandardItems'
+                @if (User.IsInRole("Officer"))
+                {
+                    <text>
+//                        ,deleteAction: '/Inventory/DeleteItem'
+//                        ,updateAction: '/Inventory/UpdateItem'
+                        ,createAction: '/DataManagement/CreateItem'
+                    </text>
+                }
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Description: {
+                    edit: false,
+                    title: 'Description',
+                    width: '40%'
+                },
+                Hyperlink: {
+                    edit: false,
+                    title: 'Hyperlink',
+                    list: false,
+                    defaultValue: ''
+                },
+                CategoryId: {
+                    edit: false,
+                    title: 'Category',
+                    width: '10%',
+                    options: '/Options/ItemCategories'
+                },
+                Barcode: {
+                    edit: false,
+                    title: 'Barcode',
+                    list: false,
+                    defaultValue: ''
+                },
+                UnitTypeId: {
+                    edit: false,
+                    title: 'Unit Type',
+                    width: '10%',
+                    options: '/Options/UnitTypes'
+                },
+                UnitId: {
+                    title: 'Units',
+                    width: '10%',
+                    options: '/Options/Units'
+                }
+            },
+            //Register to selectionChanged event
+            selectionChanged: function () { }
+        });
+
+        //Load activity list from server
+        $('#StandardItemsTable').jtable('load');
+    });
+</script>
+
+<table style="  border-width: 0px;">
+    <tr>
+        <td style="width: 66%;">
+            <div id="PersonalItemsTable"  style="
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-bottom: 15px;
+                "></div>
+                <input id="ActivePersonalCheckbox" type="checkbox" /> Show Inactive Items
+        </td>
+        <td>
+            <div id="StandardItemsTable"  style="
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-bottom: 15px;
+                "></div>
+            <input id="ActiveStandardCheckbox" type="checkbox" /> Show Inactive Items
+        <td>
+    <tr>
+        <td></td>
+        <td style="text-align:center;">
+            <button id="AddStandardItemButton" type="button" class="button" style="margin-left: auto; margin-right: auto;">Add to Inventory</button>
+        </td>
+    </tr>
+</table>
+<div style="clear:both;"></div>
+        
+<div id="StandardItemsToAdd"></div>
+
+
+<div style="clear:both;"></div>
+        
+<script src="../../Scripts/Tables/TransactionTable.js" type="text/javascript"></script>
+
+<p>Date: <input type="text" id="transdatepicker" value="@DateTime.Today.ToString("MM/dd/yyy")"></p>
+<div id="TransactionTable"  style="
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+    ">
+</div>

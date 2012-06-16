@@ -1,0 +1,6 @@
+﻿Create an HTML helper class to create simple external links
+Create a tool library
+	- URL validator to validate submitted urls
+format shopping list
+Implement Add button for inventory
+implement use button for inventory
